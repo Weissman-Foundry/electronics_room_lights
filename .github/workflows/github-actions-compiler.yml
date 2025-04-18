@@ -23,6 +23,9 @@ jobs:
         run: pip install --upgrade platformio
 
       - name: Run PlatformIO
+        with:
+          WIFI_PASS: ${{ secrets.WIFI_PASS }}
+          WIFI_SSID: ${{ secrets.WIFI_SSID }}
         run: pio run
         env:
-          PLATFORMIO_BUILD_FLAGS: -D WIFI_PASS=${{ secrets.WIFI_PASS }} -D WIFI_SSID=${{ secrets.WIFI_SSID }}
+          PLATFORMIO_BUILD_FLAGS: -D WIFI_SSID="$WIFI_SSID" -D WIFI_PASS="$WIFI_PASS"
