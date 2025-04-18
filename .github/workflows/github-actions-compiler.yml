@@ -25,4 +25,4 @@ jobs:
       - name: Run PlatformIO
         run: pio run
         env:
-          PLATFORMIO_BUILD_FLAGS: -DWIFI_PASS=${{ secrets.WIFI_PASS }} -DWIFI_SSID=${{ secrets.WIFI_SSID }}
+          PLATFORMIO_BUILD_FLAGS: -D WIFI_PASS=${{ secrets.WIFI_PASS }} -D WIFI_SSID=${{ secrets.WIFI_SSID }}
