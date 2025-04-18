@@ -18,12 +18,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - shell: bash
-        env:
-          WIFI_PASS: ${{ secrets.WIFI_PASS }}
-          WIFI_SSID: ${{ secrets.WIFI_SSID }}
-        run: |
-          echo $WIFI_PASS; echo $WIFI_PASS
+          
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
 
