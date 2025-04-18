@@ -24,7 +24,7 @@ jobs:
 
       - name: setup build flags
         run:
-          export PLATFORMIO_BUILD_FLAGS -DWIFI_SSID=$WIFI_SSID -DWIFI_PASS=$WIFI_PASS
+          export PLATFORMIO_BUILD_FLAGS -DWIFI_SSID="$WIFI_SSID" -DWIFI_PASS="$WIFI_PASS"
           echo $PLATFORMIO_BUILD_FLAGS
         env:
           WIFI_PASS: "${{ vars.TEST_PASS }}" #${{ secrets.WIFI_PASS }}
