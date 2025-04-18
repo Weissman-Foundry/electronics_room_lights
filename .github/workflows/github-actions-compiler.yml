@@ -27,12 +27,12 @@ jobs:
           export PLATFORMIO_BUILD_FLAGS=-DWIFI_SSID="$WIFI_SSID"-DWIFI_PASS="$WIFI_PASS";
           echo $PLATFORMIO_BUILD_FLAGS
         env:
-          WIFI_PASS: "${{ vars.TEST_PASS }}" #${{ secrets.WIFI_PASS }}
-          WIFI_SSID: "${{ vars.TEST_SSID }}" #${{ secrets.WIFI_SSID }}
+          WIFI_PASS: '"'"${{ vars.TEST_PASS }}"'"' #${{ secrets.WIFI_PASS }}
+          WIFI_SSID: '"'"${{ vars.TEST_SSID }}"'"' #${{ secrets.WIFI_SSID }}
 
       - name: Run PlatformIO
         run: pio run
         env:
           WIFI_PASS: "${{ vars.TEST_PASS }}" #${{ secrets.WIFI_PASS }}
           WIFI_SSID: "${{ vars.TEST_SSID }}" #${{ secrets.WIFI_SSID }}
-          PLATFORMIO_BUILD_FLAGS: -DWIFI_SSID=$WIFI_SSID -DWIFI_PASS=$WIFI_PASS
+          PLATFORMIO_BUILD_FLAGS: -DWIFI_SSID='"'$WIFI_SSID'"' -DWIFI_PASS='"'$WIFI_PASS'"'
