@@ -23,7 +23,9 @@ jobs:
         run: pip install --upgrade platformio
 
       - name: setup build flags
-        run: export PLATFORMIO_BUILD_FLAGS -DWIFI_SSID=$WIFI_SSID -DWIFI_PASS=$WIFI_PASS; echo PLATFORMIO_BUILD_FLAGS
+        run:
+          export PLATFORMIO_BUILD_FLAGS -DWIFI_SSID=$WIFI_SSID -DWIFI_PASS=$WIFI_PASS
+          echo $PLATFORMIO_BUILD_FLAGS
         env:
           WIFI_PASS: "${{ vars.TEST_PASS }}" #${{ secrets.WIFI_PASS }}
           WIFI_SSID: "${{ vars.TEST_SSID }}" #${{ secrets.WIFI_SSID }}
