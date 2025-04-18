@@ -10,8 +10,8 @@
 #include <HTTPUpdate.h>
 
 
-#define UPDATE_SITE ""
-#define UPDATE_PATH
+#define UPDATE_SITE "test"
+#define UPDATE_PATH "test"
 #ifndef WIFI_SSID
 #define WIFI_SSID "SSID"
 #define WIFI_PASS "PASSWORD"
