@@ -62,6 +62,10 @@ jobs:
           tag_prefix: v
 
 
+      - name: test
+        env:
+          UPLOAD_URL: ${{ steps.release.outputs.body.upload_url }}
+        run: echo "$UPLOAD_URL"
       # - name: Create Release
       #   id: create_release
       #   uses: actions/create-release@v1
