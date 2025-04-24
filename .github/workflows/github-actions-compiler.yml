@@ -62,10 +62,11 @@ jobs:
           tag_prefix: v
 
 
-      - name: test
-        env:
-          UPLOAD_URL: ${{ steps.release.outputs.upload_url }}
-        run: echo "$UPLOAD_URL"
+      - name: Check Output Parameters
+        run: |
+          echo "Got tag name ${{ steps.release.outputs.tag_name }}"
+          echo "Got release version ${{ steps.release.outputs.version }}"
+          echo "Upload release artifacts to ${{ steps.release.outputs.upload_url }}"
       # - name: Create Release
       #   id: create_release
       #   uses: actions/create-release@v1
@@ -82,7 +83,8 @@ jobs:
         id: upload-release-asset 
         uses: actions/upload-release-asset@v1
         env:
+          UPLOAD_URL: ${{ steps.release.outputs.upload_url }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: "${{ steps.release.outputs.body.upload_url }}" # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+          upload_url: "$UPLOAD_URL" # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: .pio/build/release/firmware.bin
