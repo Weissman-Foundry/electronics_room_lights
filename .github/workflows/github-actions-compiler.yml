@@ -4,9 +4,7 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - uses: actions/cache@v4
@@ -36,3 +34,7 @@ jobs:
           WIFI_PASS: "${{ vars.TEST_PASS }}" #${{ secrets.WIFI_PASS }}
           WIFI_SSID: "${{ vars.TEST_SSID }}" #${{ secrets.WIFI_SSID }}
           PLATFORMIO_BUILD_FLAGS: -DWIFI_SSID='"'$WIFI_SSID'"' -DWIFI_PASS='"'$WIFI_PASS'"'
+      - uses: AButler/upload-release-assets@v3.0 
+        with:
+          files: ".pio/build/release/firmware.bin"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
