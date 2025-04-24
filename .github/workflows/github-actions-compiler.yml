@@ -42,6 +42,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: ".pio/build/release/firmware.bin"
+          
       # - name: Upload assets to a Release
       #   uses: AButler/upload-release-assets@v3.0
       #   with:
