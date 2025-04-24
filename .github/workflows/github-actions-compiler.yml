@@ -39,3 +39,4 @@ jobs:
         with:
           files: ".pio/build/release/firmware.bin"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
+          release-id: 0
