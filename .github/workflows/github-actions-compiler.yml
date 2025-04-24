@@ -37,9 +37,14 @@ jobs:
           WIFI_PASS: "${{ secrets.WIFI_PASS }}" #${{ secrets.WIFI_PASS }}
           WIFI_SSID: "${{ secrets.WIFI_SSID }}" #${{ secrets.WIFI_SSID }}
           PLATFORMIO_BUILD_FLAGS: -DWIFI_SSID='"'$WIFI_SSID'"' -DWIFI_PASS='"'$WIFI_PASS'"'
-      - name: Upload assets to a Release
-        uses: AButler/upload-release-assets@v3.0
+      - name: Update release
+        uses: johnwbyrd/update-release@v1
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           files: ".pio/build/release/firmware.bin"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          release-tag:  ${{ github.ref_name }}
+      # - name: Upload assets to a Release
+      #   uses: AButler/upload-release-assets@v3.0
+      #   with:
+      #     files: ".pio/build/release/firmware.bin"
+      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
+      #     release-tag:  ${{ github.ref_name }}
