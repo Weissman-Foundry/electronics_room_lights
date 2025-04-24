@@ -38,7 +38,7 @@ jobs:
           WIFI_SSID: "${{ secrets.WIFI_SSID }}" #${{ secrets.WIFI_SSID }}
           PLATFORMIO_BUILD_FLAGS: -DWIFI_SSID='"'$WIFI_SSID'"' -DWIFI_PASS='"'$WIFI_PASS'"'
       - name: Update release
-        uses: johnwbyrd/update-release@v1
+        uses: johnwbyrd/update-release@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           files: ".pio/build/release/firmware.bin"
