@@ -98,6 +98,7 @@ void setup() {
 
   // set master brightness control
   FastLED.setBrightness(BRIGHTNESS);
+  Serial.begin(9600);
   wifi_setup();
 }
 
