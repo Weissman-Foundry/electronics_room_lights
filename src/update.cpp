@@ -14,9 +14,10 @@
 #ifndef WIFI_SSID
 #define WIFI_SSID "SSID"
 #define WIFI_PASS "PASSWORD"
-#else
-#pragma message(WIFI_SSID)
 #endif
+
+#pragma message WIFI_SSID
+
 
 const char *ssid = WIFI_SSID;
 const char *pass = WIFI_PASS;
