@@ -10,8 +10,8 @@
 #include <HTTPUpdate.h>
 
 
-#define UPDATE_SITE "test"
-#define UPDATE_PATH "test"
+#define UPDATE_SITE "https://github.com"
+#define UPDATE_PATH "Weissman-Foundry/electronics_room_lights/releases/download/latest/firmware.bin"
 #ifndef WIFI_SSID
 #define WIFI_SSID "SSID"
 #define WIFI_PASS "PASSWORD"
