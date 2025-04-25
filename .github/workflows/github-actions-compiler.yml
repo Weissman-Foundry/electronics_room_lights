@@ -41,7 +41,7 @@ jobs:
         env:
           WIFI_PASS: "${{ secrets.WIFI_PASS }}" #${{ secrets.WIFI_PASS }}
           WIFI_SSID: "${{ secrets.WIFI_SSID }}" #${{ secrets.WIFI_SSID }}
-          PLATFORMIO_BUILD_FLAGS: -DWIFI_SSID='"'$WIFI_SSID'"' -DWIFI_PASS='"'$WIFI_PASS'"'
+          PLATFORMIO_BUILD_FLAGS: -DWIFI_SSID=\"$WIFI_SSID\" -DWIFI_PASS=\"$WIFI_PASS\"
       # - name: Update release
       #   uses: johnwbyrd/update-release@v1.0.0
       #   with:
@@ -92,4 +92,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: .pio/build/release/firmware.bin
           asset_name: firmware.bin
-          asset_content_type: 
+          asset_content_type: application/octet-stream
