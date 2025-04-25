@@ -30,11 +30,11 @@ jobs:
 
       - name: setup build flags
         run:
-          export PLATFORMIO_BUILD_FLAGS=-DWIFI_SSID="$WIFI_SSID"-DWIFI_PASS="$WIFI_PASS";
+          export PLATFORMIO_BUILD_FLAGS='-DWIFI_SSID="$WIFI_SSID"''-DWIFI_PASS="$WIFI_PASS"'
           echo $PLATFORMIO_BUILD_FLAGS
         env:
-          WIFI_PASS: "${{ secrets.WIFI_PASS }}" #${{ secrets.WIFI_PASS }}
-          WIFI_SSID: "${{ secrets.WIFI_SSID }}" #${{ secrets.WIFI_SSID }}
+          WIFI_PASS: "${{ vars.TEST_PASS }}" #${{ secrets.WIFI_PASS }}
+          WIFI_SSID: "${{ vars.TEST_SSID }}" #${{ secrets.WIFI_SSID }}
 
       - name: Run PlatformIO
         run: pio run
@@ -92,4 +92,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: .pio/build/release/firmware.bin
           asset_name: firmware.bin
-          asset_content_type: application/octet-stream
+          asset_content_type: 
