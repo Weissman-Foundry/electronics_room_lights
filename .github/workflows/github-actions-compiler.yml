@@ -37,7 +37,9 @@ jobs:
           WIFI_SSID: "${{ vars.TEST_SSID }}" #${{ secrets.WIFI_SSID }}
 
       - name: Run PlatformIO
-        run: pio run
+        run: 
+          export PLATFORMIO_BUILD_FLAGS=-DWIFI_SSID='"'$WIFI_SSID'"'-DWIFI_PASS='"'$WIFI_PASS'"';
+          pio run
         env:
           WIFI_PASS: "${{ secrets.WIFI_PASS }}" #${{ secrets.WIFI_PASS }}
           WIFI_SSID: "${{ secrets.WIFI_SSID }}" #${{ secrets.WIFI_SSID }}
