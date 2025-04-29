@@ -105,7 +105,7 @@ void setup() {
 
 // List of patterns to cycle through.  Each is defined as a separate function below.
 typedef void (*SimplePatternList[])();
-SimplePatternList gPatterns = {juggle};
+SimplePatternList gPatterns = {juggle,sinelon,confetti};
 
 
 void nextPattern()
