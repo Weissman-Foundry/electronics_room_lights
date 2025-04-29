@@ -30,20 +30,20 @@ jobs:
 
       - name: setup build flags
         run:
-          export PLATFORMIO_BUILD_FLAGS=-DWIFI_SSID='"'$WIFI_SSID'"'-DWIFI_PASS='"'$WIFI_PASS'"';
-          echo $PLATFORMIO_BUILD_FLAGS
+          export TEST_PLATFORMIO_BUILD_FLAGS=-DWIFI_SSID='"'$WIFI_SSID'"'-DWIFI_PASS='"'$WIFI_PASS'"';
+          echo $TEST_PLATFORMIO_BUILD_FLAGS
         env:
-          WIFI_PASS: "${{ vars.TEST_PASS }}" #${{ secrets.WIFI_PASS }}
-          WIFI_SSID: "${{ vars.TEST_SSID }}" #${{ secrets.WIFI_SSID }}
+          WIFI_PASS: "${{ vars.TEST_PASS }}"
+          WIFI_SSID: "${{ vars.TEST_SSID }}"
 
       - name: Run PlatformIO
         run:
-          export PLATFORMIO_BUILD_FLAGS=-DWIFI_SSID='"'$WIFI_SSID'"'-DWIFI_PASS='"'$WIFI_PASS'"';
+          #export PLATFORMIO_BUILD_FLAGS=-DWIFI_SSID='"'$WIFI_SSID'"'-DWIFI_PASS='"'$WIFI_PASS'"';
           pio run
         env:
-          WIFI_PASS: "${{ secrets.WIFI_PASS }}" #${{ secrets.WIFI_PASS }}
-          WIFI_SSID: "${{ secrets.WIFI_SSID }}" #${{ secrets.WIFI_SSID }}
-          #PLATFORMIO_BUILD_FLAGS: '-DWIFI_SSID="$WIFI_SSID"-DWIFI_PASS="$WIFI_PASS"'
+          WIFI_PASS: "${{ secrets.WIFI_PASS }}"
+          WIFI_SSID: "${{ secrets.WIFI_SSID }}"
+          PLATFORMIO_BUILD_FLAGS: '-DWIFI_SSID="$WIFI_SSID"-DWIFI_PASS="$WIFI_PASS"'
       # - name: Update release
       #   uses: johnwbyrd/update-release@v1.0.0
       #   with:
