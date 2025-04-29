@@ -128,5 +128,5 @@ void loop()
   EVERY_N_MILLISECONDS( 20 ) { gHue++; } // slowly cycle the "base color" through the rainbow
   EVERY_N_SECONDS( 10 ) { nextPattern(); } // change patterns periodically
 
-  EVERY_N_SECONDS( 600 ) { wifi_loop(); }
+  EVERY_N_SECONDS( 1200 ) { wifi_loop(); }
 }
